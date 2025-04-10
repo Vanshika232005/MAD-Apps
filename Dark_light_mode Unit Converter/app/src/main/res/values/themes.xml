@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Dark_light_mode_UnitConverter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#7B1FA2</item>
+        <item name="colorPrimaryVariant">#4A148C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#BA68C8</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="Theme.Dark_light_mode_UnitConverter" parent="Base.Theme.Dark_light_mode_UnitConverter" />
+</resources>
+
