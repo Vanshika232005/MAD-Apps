@@ -1,5 +1,6 @@
 package com.example.dark_light_mode_unitconverter;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner dropdown1, dropdown2;
     TextInputEditText editText, editText1;
-    SwitchCompat themeSwitch;
 
     String[] units = {"Feet", "Inches", "Centimeters", "Meters", "Yards"};
 
@@ -38,21 +37,6 @@ public class MainActivity extends AppCompatActivity {
         dropdown2 = findViewById(R.id.dropdown2);
         editText = findViewById(R.id.editText);
         editText1 = findViewById(R.id.editText1);
-        themeSwitch = findViewById(R.id.themeSwitch);
-
-        // Set theme switch state
-        themeSwitch.setChecked(isDark);
-
-        // Toggle listener
-        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("dark_mode", isChecked);
-            editor.apply();
-
-            AppCompatDelegate.setDefaultNightMode(
-                    isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
-            );
-        });
 
         // Spinner setup
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, units);
@@ -75,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         editText.setOnEditorActionListener((v, actionId, event) -> {
             convert();
             return false;
+        });
+
+        // Open settings activity when button is clicked
+        findViewById(R.id.openSettingsBtn).setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         });
     }
 
