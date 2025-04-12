@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Use cache path for temporary camera photos -->
+    <cache-path name="camera_images" path="." />
+    <!-- Or use files-path for internal storage -->
+    <!-- <files-path name="my_images" path="images/"/> -->
+</paths>
